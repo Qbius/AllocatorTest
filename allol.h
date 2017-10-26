@@ -8,24 +8,6 @@ class allol
 {
 public:
     
-    struct call_stats
-    {
-        unsigned alloc_count;
-        unsigned dealc_count;
-        unsigned cnstr_count;
-        unsigned destr_count;
-    };
-
-    static call_stats stats;
-
-    static void reset_stats()
-    {
-        stats.alloc_count = 0;
-        stats.dealc_count = 0;
-        stats.cnstr_count = 0;
-        stats.destr_count = 0;
-    }
-
     typedef T        value_type;
     typedef T*       pointer;
     typedef const T* const_pointer;
@@ -100,8 +82,5 @@ bool operator!= (const allol<T1>&, const allol<T2>&) throw()
 {
     return false;
 }
-
-template<typename TValueType>
-typename allol<TValueType>::call_stats allol<TValueType>::stats = allol<TValueType>::call_stats{};
 
 #endif
